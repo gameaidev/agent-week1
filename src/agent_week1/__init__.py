@@ -16,22 +16,15 @@ def main() -> None:
     messages: list[MessageParam] = [
         {
             "role": "user",
-            "content": "Hi, how are you?",
+            "content": "Hi, introduce yourself!",
         }
     ]
 
-    message = client.messages.create(
-        model="deepseek-v4-flash",
-        max_tokens=1000,
-        system="You are a helpful assistant.",
-        messages=messages,
-    )
-
-    # Print the response
-    response_text = "".join(
-        block.text
-        for block in message.content
-        if block.type == "text"
-    )
-
-    print(response_text)
+    with client.messages.stream(
+            model="deepseek-v4-pro",
+            max_tokens=1000,
+            system="Your name is Serenity. You are a helpful assistant.",
+            messages=messages,
+    ) as stream:
+        for text in stream.text_stream:
+            print(text, end="", flush=True)
