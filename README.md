@@ -22,7 +22,7 @@ stop_reason: found_issue == true
 
 ## Algorithm
 
-```python
+```text
 found_issue = false
 
 while (found_issue != true) {
