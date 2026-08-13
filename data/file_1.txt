@@ -1,0 +1,3 @@
+I want you to do the following tasks:
+1) run the script data/bash_1.sh,
+2) read and summarize https://github.com/multica-ai/andrej-karpathy-skills/blob/main/CLAUDE.md.
